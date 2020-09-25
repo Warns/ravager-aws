@@ -51,3 +51,7 @@ output "web-address" {
   value = "${aws_instance.web.public_dns}:8080"
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 33cb5bc977e4e22d27920d8f57afa6abe35dfa51
