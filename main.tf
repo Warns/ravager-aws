@@ -52,4 +52,4 @@ output "web-address" {
 }
 
 # Check ingress
-##kubectl -n istio-system get service istio-ingressgateway
+
