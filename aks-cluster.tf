@@ -37,6 +37,6 @@ resource "azurerm_kubernetes_cluster" "ims" {
   }
 
   tags = {
-    environment = "Demo"
+    environment = "Develop"
   }
 }
