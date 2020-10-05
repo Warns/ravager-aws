@@ -5,18 +5,18 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "default" {
+resource "azurerm_resource_group" "ims" {
   name     = "${random_pet.prefix.id}-rg"
   location = "West US 2"
 
   tags = {
-    environment = "Demo"
+    environment = "develop"
   }
 }
 
-resource "azurerm_kubernetes_cluster" "default" {
+resource "azurerm_kubernetes_cluster" "ims" {
   name                = "${random_pet.prefix.id}-aks"
-  location            = azurerm_resource_group.default.location
+  location            = azurerm_resource_group.ims.location
   resource_group_name = azurerm_resource_group.default.name
   dns_prefix          = "${random_pet.prefix.id}-k8s"
 
