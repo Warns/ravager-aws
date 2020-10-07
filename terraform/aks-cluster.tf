@@ -21,6 +21,6 @@ resource "azurerm_kubernetes_cluster" "dev-identity" {
   }
 
   tags = {
-    environment = "Dev Identity Service"
+    environment = "Dev Identity Service K8s"
   }
 }
