@@ -4,6 +4,14 @@ resource "azurerm_kubernetes_cluster" "dev-identity" {
   resource_group_name = azurerm_resource_group.dev-rg.name
   dns_prefix          = "${var.prefix}-dns"
 
+  linux_profile {
+    admin_username = "dev"
+
+    ssh_key {
+      key_data = file(var.ssh_public_key)
+    }
+  }
+
   default_node_pool {
     name            = "dev-indentity-node"
     node_count      = 2
