@@ -2,8 +2,12 @@ provider "azurerm" {
   version = "=2.20.0"
 }
 
-# Create a resource group
-resource "azurerm_resource_group" "identity" {
-  name     = "identity-rg"
+# create resource group
+resource "azurerm_resource_group" "dev-rg" {
+  name = "dev-identity-rg"
   location = var.location
+  tags = {
+    env = "dev-identity-rg"
+    source = "sociallme"
+  }
 }
