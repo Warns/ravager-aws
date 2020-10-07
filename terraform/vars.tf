@@ -1,3 +1,11 @@
+variable "resourcename" {
+  default = "identity-aks-rg"
+}
+
+variable "clustername" {
+  default = "identity-aks"
+}
+
 variable "location" {
   type = string
   default = "westeurope"
@@ -8,14 +16,23 @@ variable "prefix" {
   default = "dev-identity"
 }
 
-variable "ssh-source-address" {
-  type = string
-  default = "*"
+#variable "size" {
+#  default = "Standard_D2_V2"
+#}
 
-variable "appId" {
-  description = ""
+#variable "agentnode" {
+#  default = "2"
+#}
+
+variable "subscription_id" {
+  default = ""
 }
-
-variable "password" {
-  description = ""
+variable "client_id" {
+  default = ""
+}
+variable "client_secret" {
+  default = ""
+}
+variable "tenant_id" {
+  default = ""
 }
