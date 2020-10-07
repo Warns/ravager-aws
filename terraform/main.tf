@@ -4,6 +4,6 @@ provider "azurerm" {
 
 # Create a resource group
 resource "azurerm_resource_group" "identity" {
-  name     = "wagtail-playground"
+  name     = "identity-rg"
   location = var.location
 }
