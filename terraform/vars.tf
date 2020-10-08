@@ -36,3 +36,8 @@ variable "client_secret" {
 variable "tenant_id" {
   default = ""
 }
+
+variable "ssh_key" {
+  type = string
+  default = ""
+}
