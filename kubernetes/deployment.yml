@@ -2,3 +2,9 @@ apiVersion : apps/v1beta1
 kind: Deployment
 metadata:
   name: identity-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: identityapp
