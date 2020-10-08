@@ -8,3 +8,9 @@ spec:
     metadata:
       labels:
         app: identityapp
+    spec:
+      containers:
+        - name: identityapp
+          image: identityservice.azurecr.io/serviceone:${{ github.run_id }}
+          ports:
+          - containerPort: 80
