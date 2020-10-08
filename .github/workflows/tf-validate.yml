@@ -1,0 +1,7 @@
+name: Terraform Validate
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
