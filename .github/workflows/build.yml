@@ -81,3 +81,8 @@ jobs:
           SLACK_WEBHOOK: '${{ secrets.SLACK_WEBHOOK }}'
           SLACK_TITLE: Failure
           SLACK_MESSAGE: "You got an error during SCA Step, Snyk! workflow: ${{ github.workflow }} run id: ${{ github.run_id\t}}\t"
+      - uses: azure/docker-login@v1
+        with:
+          login-server: identityservice.azurecr.io
+          username: '${{ secrets.REGISTRY_USERNAME }}'
+          password: '${{ secrets.REGISTRY_PASSWORD }}'
