@@ -86,3 +86,6 @@ jobs:
           login-server: identityservice.azurecr.io
           username: '${{ secrets.REGISTRY_USERNAME }}'
           password: '${{ secrets.REGISTRY_PASSWORD }}'
+      - run: |
+          docker build . -t identityservice.azurecr.io/serviceone:${{ github.run_id }}
+          docker push identityservice.azurecr.io/serviceone:${{ github.run_id }}
