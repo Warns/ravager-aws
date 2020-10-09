@@ -14,4 +14,8 @@ jobs:
       JOB_STATUS_UNIT: ok
       JOB_STATUS_SCA: ok
       GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
