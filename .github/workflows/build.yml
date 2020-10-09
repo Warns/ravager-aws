@@ -107,3 +107,11 @@ jobs:
         container-registry-username: '${{ secrets.REGISTRY_USERNAME }}'
         container-registry-password: '${{ secrets.REGISTRY_PASSWORD }}'
         secret-name: identity-k8s-secret
+    - uses: azure/k8s-deploy@v1
+      with:
+        manifests: |
+          ./kubernetes/deployment.yml
+        images: 'identityservice.azurecr.io/serviceone:${{ github.run_id }}'
+        imagepullsecrets: |
+          identity-k8s-secret
+        kubectl-version: latest
