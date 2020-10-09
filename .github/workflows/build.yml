@@ -58,3 +58,7 @@ jobs:
 
           echo "Pull Request Number - $JOB_STATUS_UNIT"
         if: always()
+      - name: Run Sonar for vulernability check in dependencies
+        run: |
+          pip install safety
+          safety check --full-report
