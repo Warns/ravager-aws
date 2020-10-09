@@ -115,3 +115,12 @@ jobs:
         imagepullsecrets: |
           identity-k8s-secret
         kubectl-version: latest
+    - name: Slack Notification for Build
+      uses: bryan-nice/slack-notification@master
+      env:
+        SLACK_WEBHOOK: '${{ secrets.SLACK_WEBHOOK }}'
+        SLACK_TITLE: Build
+        SLACK_MESSAGE: >-
+          Your build is completed! successfully pushed to container
+          registry  identityservice.azurecr.io/serviceone:${{ github.run_id
+          }}
