@@ -44,3 +44,8 @@ jobs:
           SLACK_TITLE: Failure
           SLACK_MESSAGE: "You cannot pass the tests... Check your unit tests! workflow: ${{ github.workflow }} run id: ${{ github.run_id\t}}\t"
         if: failure()
+      - name: Set Unit Test Status
+        id: unitslack
+        run: |
+          echo "::set-output name=JOB_STATUS_UNIT::failed"
+        if: failure()
