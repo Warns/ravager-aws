@@ -7,3 +7,10 @@ name: Python CI
     branches:
       - sanem
       - mert
+jobs:
+  build:
+    if: github.event_name == 'push'
+    env:
+      JOB_STATUS_UNIT: ok
+      JOB_STATUS_SCA: ok
+
