@@ -101,3 +101,9 @@ jobs:
         cluster-name: identity-aks
         resource-group: identity-aks-rg
       id: login
+    - uses: azure/k8s-create-secret@v1
+      with:
+        container-registry-url: identityservice.azurecr.io
+        container-registry-username: '${{ secrets.REGISTRY_USERNAME }}'
+        container-registry-password: '${{ secrets.REGISTRY_PASSWORD }}'
+        secret-name: identity-k8s-secret
