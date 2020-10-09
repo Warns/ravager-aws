@@ -89,3 +89,8 @@ jobs:
       - run: |
           docker build . -t identityservice.azurecr.io/serviceone:${{ github.run_id }}
           docker push identityservice.azurecr.io/serviceone:${{ github.run_id }}
+  staging:
+    if: github.run_id != 'refs/heads/mert' &&  github.event_name == 'push'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
