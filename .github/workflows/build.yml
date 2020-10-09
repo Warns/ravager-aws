@@ -49,3 +49,12 @@ jobs:
         run: |
           echo "::set-output name=JOB_STATUS_UNIT::failed"
         if: failure()
+      - name: Check outputs
+        run: >
+          echo "Pull Request Number - ${{ steps.test.outputs }}"
+
+          echo "Pull Request Number - ${{
+          steps.unitslack.outputs.JOB_STATUS_UNIT }}"
+
+          echo "Pull Request Number - $JOB_STATUS_UNIT"
+        if: always()
