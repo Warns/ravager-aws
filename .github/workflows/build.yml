@@ -13,4 +13,5 @@ jobs:
     env:
       JOB_STATUS_UNIT: ok
       JOB_STATUS_SCA: ok
+      GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
