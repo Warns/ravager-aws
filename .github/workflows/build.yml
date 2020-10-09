@@ -74,3 +74,10 @@ jobs:
         with:
           args: '--severity-threshold=high'
           command: monitor
+      - name: Slack Notification for Snyk
+        if: steps.unitslack.outputs.JOB_STATUS_UNIT != 'failed' && failure()
+        uses: bryan-nice/slack-notification@master
+        env:
+          SLACK_WEBHOOK: '${{ secrets.SLACK_WEBHOOK }}'
+          SLACK_TITLE: Failure
+          SLACK_MESSAGE: "You got an error during SCA Step, Snyk! workflow: ${{ github.workflow }} run id: ${{ github.run_id\t}}\t"
