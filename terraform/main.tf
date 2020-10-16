@@ -11,3 +11,13 @@ resource "azurerm_resource_group" "dev-rg" {
     source = "sociallme"
   }
 }
+
+terraform {
+  backend "azurerm" {
+    resource_group_name   = "tstate"
+    storage_account_name  = "tstate15315"
+    container_name        = "tstate"
+    access_key            = ""
+    key                   = "terraform.tfstate"
+  }
+}
