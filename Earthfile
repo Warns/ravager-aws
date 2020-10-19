@@ -14,3 +14,8 @@ deps:
     COPY ./requirements.txt .
     RUN pip install -r requirements.txt
     SAVE IMAGE
+
+build:
+    FROM +deps
+    COPY ./src .
+    SAVE ARTIFACT src /src
