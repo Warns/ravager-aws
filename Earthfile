@@ -19,3 +19,8 @@ build:
     FROM +deps
     COPY ./src .
     SAVE ARTIFACT src /src
+
+docker:
+    COPY +build/src src
+    COPY requirements.txt ./
+    RUN pip install --no-index -r requirements.txt
