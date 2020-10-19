@@ -16,3 +16,8 @@ jobs:
       #url_instead_of: "https://github.com/=git@github.com:"
       url_instead_of: "git@github.com/=https://github.com:"
       FORCE_COLOR: 1
+    steps:
+    - uses: actions/checkout@v2
+    - name: Put back the git branch into git (Earthly uses it for tagging)
+      run: |
+        branch=""
