@@ -24,3 +24,6 @@ docker:
     COPY +build/src src
     COPY requirements.txt ./
     RUN pip install --no-index -r requirements.txt
+
+    ENTRYPOINT ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+    SAVE IMAGE python-earthly:latest
