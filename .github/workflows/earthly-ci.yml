@@ -1,0 +1,8 @@
+# CI using earthly
+name: CI
+
+on:
+  push:
+    branches: [ mert ]
+  pull_request:
+    branches: [ mert ]
