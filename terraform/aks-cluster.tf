@@ -21,7 +21,7 @@ resource "azurerm_kubernetes_cluster" "dev-identity-k8s" {
     ssh_key {
       key_data = var.ssh-key
     }
-  }
+ }
 
   network_profile {
     network_plugin = "kubenet"
