@@ -5,7 +5,6 @@ name: Python CI
       - mert
   pull_request:
     branches:
-      - sanem
       - mert
 jobs:
   build:
