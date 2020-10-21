@@ -7,7 +7,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "ims" {
   name     = "${random_pet.prefix.id}-rg"
-  location = "West US 2"
+  location = "West Europe"
 
   tags = {
     environment = "develop"
