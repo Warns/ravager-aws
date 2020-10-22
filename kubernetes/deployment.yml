@@ -4,3 +4,11 @@ metadata:
   name: identity
   namespace: default
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: identity-svc
+  namespace: default
+  labels:
+    name: service-svc
+    env: dev
