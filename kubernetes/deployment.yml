@@ -65,3 +65,6 @@ spec:
         env:
         - name: testEnv
           value: "12345"
+        ports:
+        - containerPort: 8000
+          name: identity-app
