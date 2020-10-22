@@ -68,3 +68,5 @@ spec:
         ports:
         - containerPort: 8000
           name: identity-app
+        imagePullPolicy: Always
+      restartPolicy: Always
