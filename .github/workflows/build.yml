@@ -1,10 +1,11 @@
 name: Python CI
 'on':
   push:
-    branches:
-      - mert
+   branches:
+     - mert
   pull_request:
     branches:
+      - sanem
       - mert
 jobs:
   build:
