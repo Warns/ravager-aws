@@ -89,6 +89,29 @@ jobs:
       - run: |
           docker build . -t identityservice.azurecr.io/serviceone:${{ github.run_id }}
           docker push identityservice.azurecr.io/serviceone:${{ github.run_id }}
+
+terraform:
+    name: 'Terraform'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v2
+      - name: 'Terraform Setup'
+        uses: hashicorp/setup-terraform@v1
+        with:
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      - name: 'Terraform Init'
+        run: terraform init ./terraform
+      - name: 'Terraform Format'
+        run: terraform fmt -check ./terraform
+      - name: 'Terraform Plan'
+        run: terraform plan ./terraform
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/mert' && github.event_name == 'push'
+        run: terraform apply -auto-approve ./terraform
+
+          
   staging:
     if: github.run_id != 'refs/heads/mert' &&  github.event_name == 'push'
     needs: build
