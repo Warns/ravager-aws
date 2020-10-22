@@ -1,18 +1,4 @@
-<div class="xblock xblock-student_view xblock-student_view-vertical xblock-initialized" data-course-id="course-v1:LinuxFoundationX+LFS158x+3T2020" data-init="VerticalStudentView" data-runtime-class="LmsRuntime" data-runtime-version="1" data-block-type="vertical" data-usage-id="block-v1:LinuxFoundationX+LFS158x+3T2020+type@vertical+block@2bae39666eb845458a609461072eb86e" data-request-token="888f2d4613a111ebbe3d0ac708c69a8d" data-graded="False" data-has-score="False">
-  
-
-
-
-
-
-
-
-
-
-<div class="vert-mod">
-    <div class="vert vert-0" data-id="block-v1:LinuxFoundationX+LFS158x+3T2020+type@html+block@3776fb9f13fd484caed435f9f04dae6d">
-        
-<div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlBlock xblock-initialized" data-course-id="course-v1:LinuxFoundationX+LFS158x+3T2020" data-mark-completed-on-view-after-delay="0" data-init="XBlockToXModuleShim" data-runtime-class="LmsRuntime" data-runtime-version="1" data-block-type="html" data-usage-id="block-v1:LinuxFoundationX+LFS158x+3T2020+type@html+block@3776fb9f13fd484caed435f9f04dae6d" data-request-token="888f2d4613a111ebbe3d0ac708c69a8d" data-graded="False" data-has-score="False">
+<div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlBlock xblock-initialized" data-course-id="course-v1:LinuxFoundationX+LFS158x+3T2020" data-mark-completed-on-view-after-delay="0" data-init="XBlockToXModuleShim" data-runtime-class="LmsRuntime" data-runtime-version="1" data-block-type="html" data-usage-id="block-v1:LinuxFoundationX+LFS158x+3T2020+type@html+block@e50cfe77a42047c8bb15b5064b04d2a8" data-request-token="685f9f8413aa11eb8b680ed4552651b9" data-graded="False" data-has-score="False">
   
   
 
@@ -21,35 +7,20 @@
 
 
 
-<div id="edx-notes-wrapper-92023095613597338080339069826497949893" class="edx-notes-wrapper"><span class="edx-notes-focus-grabber" tabindex="-1"></span><div class="annotator-wrapper">
-    <div class="edx-notes-wrapper-content"><p>Let's learn how to install the latest Minikube release on Ubuntu Linux 18.04 LTS with VirtualBox v6.1 specifically.</p>
-<p style="font-size: 16px; line-height: 25.6px; margin-top: 20px; padding-left: 30px; text-align: left;"><strong>NOTE: For other Linux OS distributions or releases, VirtualBox and Minikube versions the installation steps may vary! Check the&nbsp;<a href="https://kubernetes.io/docs/tasks/tools/install-minikube/" target="_blank">Minikube installation</a>!</strong></p>
-<p></p>
-<p><strong>Verify the virtualization support on your Linux OS (a non-empty output indicates supported virtualization):</strong></p>
-<p><strong style="font-family: 'courier new', courier;"><span style="color: #0000ff;">$ grep -E --color 'vmx|svm' /proc/cpuinfo</span></strong></p>
-<p></p>
-<p><strong>Install the&nbsp;<a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank">VirtualBox</a></strong><strong style="font-size: 1em;">&nbsp;hypervisor</strong><br> Add the source repository for the&nbsp;<strong>bionic</strong>&nbsp;distribution (Ubuntu 18.04), download and register the public key, update and install:</p>
-<p><span style="font-family: 'courier new', courier;"><strong><span style="color: #0000ff;">$ sudo bash -c 'echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bionic contrib" &gt;&gt; /etc/apt/sources.list'</span></strong></span></p>
-<p><span style="font-family: 'courier new', courier;"><strong><span style="color: #0000ff;">$ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -</span></strong></span></p>
-<p><span style="font-family: 'courier new', courier;"><strong><span style="color: #0000ff;">$ sudo apt update</span></strong></span></p>
-<p><span style="font-family: 'courier new', courier;"><strong><span style="color: #0000ff;">$ sudo apt install -y virtualbox-6.1</span></strong></span></p>
-<p></p>
-<p><strong>Install Minikube</strong><br> We can download the latest release or a specific release from the <a href="https://github.com/kubernetes/minikube/releases" target="_blank">Minikube release page</a>. Once downloaded, we need to make it executable and add it to our&nbsp;<strong><span style="font-family: 'courier new', courier;">PATH</span></strong>:</p>
-<p><span style="font-family: 'courier new', courier;"><strong><span style="color: #0000ff;">$</span></strong><span style="color: #0000ff;"><strong>&nbsp;<span>curl -Lo minikube</span></strong></span></span><span style="color: #0000ff;"><strong><span> </span></strong></span><span style="font-family: 'courier new', courier;"><span style="color: #0000ff;"><strong><a href="https://storage.googleapis.com/minikube/releases/v1.0.1/minikube-linux-amd64" target="_blank"><span style="color: #0000ff;">https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64</span></a></strong></span><span style="color: #0000ff;"><span><strong> </strong></span></span><span style="color: #0000ff;"><span><span><strong>&amp;&amp; chmod +x minikube &amp;&amp; sudo mv minikube /usr/local/bin/</strong></span></span></span></span></p>
-<p style="padding-left: 30px;"><strong>NOTE:</strong>&nbsp;<span style="color: #000000;">Replacing</span> <span style="font-family: 'courier new', courier; color: #0000ff;"><strong>/latest/</strong></span><span style="color: #0000ff;">&nbsp;<span style="color: #000000;">with a particular version, such as&nbsp;</span></span><span style="font-family: 'courier new', courier;"><strong style="color: #0000ff; font-family: 'courier new', courier;">/</strong></span><strong style="color: #0000ff; font-family: 'courier new', courier;">v1.13.0</strong><span style="font-family: 'courier new', courier;"><strong style="color: #0000ff; font-family: 'courier new', courier;">/</strong></span><span style="color: #0000ff;">&nbsp;<span style="color: #000000; font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;">will download that specified version.&nbsp;</span></span></p>
-<p></p>
-<p><strong>Start Minikube</strong><br> We can start Minikube with the <strong><span style="font-family: 'courier new', courier;">minikube start</span></strong> command, that bootstraps a single-node cluster with the latest stable Kubernetes version release. For a specific Kubernetes version the <span style="font-family: &quot;courier new&quot;, courier;"><strong>--kubernetes-version</strong></span> option can be sued as such <span style="font-family: &quot;courier new&quot;, courier;"><strong>minikube start&nbsp;--kubernetes-version v1.19.0</strong></span> (where <span style="font-family: 'courier new', courier;"><strong>latest</strong></span> is default and acceptable version value,&nbsp;and <span style="font-family: 'courier new', courier;"><strong>stable</strong></span> is also&nbsp;acceptable):</p>
-<p><span style="color: #0000ff; font-family: 'courier new', courier;"><span color="#0000ff" face="courier new, courier" style="color: #0000ff; font-family: 'courier new', courier;"><b>$ minikube start</b></span></span></p>
-<p><strong><span style="color: #0000ff;"><span style="font-family: 'courier new', courier;">😄&nbsp; minikube v1.13.1 on Ubuntu 18.04</span></span></strong><br><span style="font-family: 'courier new', courier;"><strong><span style="color: #0000ff;"> ✨&nbsp; Automatically selected the virtualbox driver</span></strong></span><br><span color="#0000ff" face="courier new, courier" style="color: #0000ff; font-family: 'courier new', courier;"><b>💿&nbsp; Downloading VM boot image ...</b></span><br><span color="#0000ff" face="courier new, courier" style="color: #0000ff; font-family: 'courier new', courier;"><b>&nbsp; &nbsp; &gt; minikube-v1.13.1.iso.sha256: 65 B / 65 B [-------------] 100.00% ? p/s 0s</b></span><br><span color="#0000ff" face="courier new, courier" style="color: #0000ff; font-family: 'courier new', courier;"><b>&nbsp; &nbsp; &gt; minikube-v1.13.1.iso: 173.91 MiB / 173.91 MiB [] 100.00% 26.59 MiB p/s 6s</b></span><br><span color="#0000ff" face="courier new, courier" style="color: #0000ff; font-family: 'courier new', courier;"><b>👍&nbsp; Starting control plane node minikube in cluster minikube</b></span><br><span color="#0000ff" face="courier new, courier" style="color: #0000ff; font-family: 'courier new', courier;"><b>💾&nbsp; Downloading Kubernetes v1.19.2 preload ...</b></span><br><span color="#0000ff" face="courier new, courier" style="color: #0000ff; font-family: 'courier new', courier;"><b>&nbsp; &nbsp; &gt; preloaded-images-k8s-v6-v1.19.2-docker-overlay2-amd64.tar.lz4: 486.36 MiB</b></span><br><span color="#0000ff" face="courier new, courier" style="color: #0000ff; font-family: 'courier new', courier;"><b>🔥&nbsp; Creating virtualbox VM (CPUs=2, Memory=3900MB, Disk=20000MB) ...</b></span><br><span color="#0000ff" face="courier new, courier" style="color: #0000ff; font-family: 'courier new', courier;"><b>🐳&nbsp; Preparing Kubernetes v1.19.2 on Docker 19.03.12 ...</b></span><br><span color="#0000ff" face="courier new, courier" style="color: #0000ff; font-family: 'courier new', courier;"><b>🔎&nbsp; Verifying Kubernetes components...</b></span><br><span color="#0000ff" face="courier new, courier" style="color: #0000ff; font-family: 'courier new', courier;"><b>🌟&nbsp; Enabled addons: default-storageclass, storage-provisioner</b></span><br><span color="#0000ff" face="courier new, courier" style="color: #0000ff; font-family: 'courier new', courier;"><b>💡&nbsp; kubectl not found. If you need it, try: 'minikube kubectl -- get pods -A'</b></span><br><span color="#0000ff" face="courier new, courier" style="color: #0000ff; font-family: 'courier new', courier;"><b>🏄&nbsp; Done! kubectl is now configured to use "minikube" by default</b></span></p>
-<p></p>
-<p><strong>Check the status</strong></p>
-<p>With the <strong><span style="font-family: 'courier new', courier;">minikube status</span></strong> command, we display the status of Minikube:</p>
-<p><span style="font-family: 'courier new', courier; color: #0000ff;"><strong><span color="#0000ff" face="courier new, courier">$ minikube status</span></strong></span></p>
-<p><span style="font-family: 'courier new', courier; color: #0000ff;"><strong><span color="#0000ff" face="courier new, courier">minikube</span></strong></span><br><span style="font-family: 'courier new', courier; color: #0000ff;"><strong><span color="#0000ff" face="courier new, courier">type: Control Plane</span></strong></span><br><span style="font-family: 'courier new', courier; color: #0000ff;"><strong><span color="#0000ff" face="courier new, courier">host: Running</span></strong></span><br> <span style="font-family: 'courier new', courier; color: #0000ff;"><strong><span color="#0000ff" face="courier new, courier">kubelet: Running</span></strong></span><br> <span style="font-family: 'courier new', courier; color: #0000ff;"><strong><span color="#0000ff" face="courier new, courier">apiserver: Running</span></strong></span><br> <span style="font-family: 'courier new', courier; color: #0000ff;"><strong><span color="#0000ff" face="courier new, courier">kubeconfig: Configured</span></strong></span></p>
-<p></p>
-<p><strong>Stop minikube</strong><br> With the<span style="font-family: 'courier new', courier;"> <strong>minikube stop&nbsp;</strong></span>command, we can stop Minikube:<br><br><span style="font-family: 'courier new', courier; color: #0000ff;"><strong>$ minikube stop</strong></span></p>
-<p><span style="font-family: 'courier new', courier; color: #0000ff;"><strong><span style="font-size: 16px;">Stopping node "minikube"&nbsp; ...</span></strong></span><br style="color: #222222; font-family: arial, sans-serif; font-size: 16px;"><span style="font-family: 'courier new', courier; color: #0000ff;"><strong><span style="font-size: 16px;">1 nodes stopped.</span></strong></span></p></div>
-<div class="annotator-outer annotator-viewer annotator-hide"><ul class="annotator-widget annotator-listing" tabindex="-1"></ul></div><div class="annotator-outer annotator-editor annotator-hide"><form class="annotator-widget" tabindex="-1"><ul class="annotator-listing"><li class="annotator-item"><textarea id="annotator-field-0" placeholder="Comments…"></textarea></li><li class="annotator-item"><input id="annotator-field-1" placeholder="Add some tags here…"></li></ul><div class="annotator-controls"><button class="annotator-save">Save<span class="sr">Note</span></button><button class="annotator-cancel">Cancel<span class="sr">Note</span></button></div></form></div><div class="annotator-adder" style="display: none; top: 606px; left: 497px;"><button>Annotate</button></div></div></div>
+<div id="edx-notes-wrapper-166505410416070297995060548357308719771" class="edx-notes-wrapper"><span class="edx-notes-focus-grabber" tabindex="-1"></span><div class="annotator-wrapper">
+    <div class="edx-notes-wrapper-content"><p>To install <span style="font-family: 'courier new', courier;"><strong>kubectl</strong></span> on Linux, follow the instruction below:</p>
+<p><strong></strong></p>
+<p><strong>Download the latest stable <span style="font-family: 'courier new', courier;">kubectl</span> binary, make it executable and move it to the <span style="font-family: 'courier new', courier;">PATH</span>:</strong><br><br><span style="color: #0000ff;"><strong><span style="font-family: 'courier new', courier;">$ curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" &amp;&amp; chmod +x kubectl &amp;&amp; sudo mv kubectl /usr/local/bin/</span></strong></span></p>
+<p>Where&nbsp;<span style="font-family: 'courier new', courier;"><strong><a href="https://storage.googleapis.com/kubernetes-release/release/stable.txt" target="_blank">https://storage.googleapis.com/kubernetes-release/release/stable.txt</a></strong></span>&nbsp;aims to display the latest Kubernetes stable release version.</p>
+<p><strong>NOTE:</strong> To download and setup a specific version of <span style="font-family: 'courier new', courier;"><strong>kubectl</strong></span> (such as v1.19.1), issue the following command:</p>
+<p><strong style="color: #0000ff;"><span style="font-family: 'courier new', courier;">$ curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.19.1/bin/linux/amd64/kubectl &amp;&amp; chmod +x kubectl &amp;&amp; sudo mv kubectl /usr/local/bin/</span></strong></p>
+<p><span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"><strong></strong></span></p>
+<p><span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"><strong>A typical helpful post-installation configuration is to enable <a href="echo 'source <(kubectl completion bash)' >>~/.bashrc" target="_blank">shell autocompletion</a>&nbsp;for <span style="font-family: 'courier new', courier;">kubectl</span>. It can be achieved by running the following four commands:&nbsp;</strong></span></p>
+<p><span style="font-family: 'courier new', courier;"><span style="color: #0000ff;"><strong>$ sudo apt install -y&nbsp;</strong></span><span color="#0000ff" face="courier new, courier" style="color: #0000ff;"><b>bash-completion</b></span></span></p>
+<p><span style="font-family: 'courier new', courier;"><span style="color: #0000ff;"><strong>$ source /usr/share/</strong></span><span color="#0000ff" face="courier new, courier" style="color: #0000ff;"><b>bash-completion</b></span><span style="color: #0000ff;"><strong>/</strong></span><span color="#0000ff" face="courier new, courier" style="color: #0000ff;"><b>bash-completion</b></span><span color="#0000ff" face="courier new, courier" style="color: #0000ff;"><b></b></span></span></p>
+<p><span style="font-family: 'courier new', courier;"><span style="color: #0000ff;"><strong>$&nbsp;</strong></span><span color="#0000ff" face="courier new, courier" style="color: #0000ff; font-family: 'courier new', courier;"><b>source &lt;(kubectl completion bash)</b></span></span></p>
+<p><span style="font-family: 'courier new', courier;"><span style="color: #0000ff;"><strong>$&nbsp;</strong></span><span color="#0000ff" face="courier new, courier" style="color: #0000ff; font-family: 'courier new', courier;"><b>echo 'source &lt;(kubectl completion bash)' &gt;&gt;~/.bashrc</b></span></span></p></div>
+<div class="annotator-outer annotator-viewer annotator-hide"><ul class="annotator-widget annotator-listing" tabindex="-1"></ul></div><div class="annotator-outer annotator-editor annotator-hide"><form class="annotator-widget" tabindex="-1"><ul class="annotator-listing"><li class="annotator-item"><textarea id="annotator-field-0" placeholder="Comments…"></textarea></li><li class="annotator-item"><input id="annotator-field-1" placeholder="Add some tags here…"></li></ul><div class="annotator-controls"><button class="annotator-save">Save<span class="sr">Note</span></button><button class="annotator-cancel">Cancel<span class="sr">Note</span></button></div></form></div><div class="annotator-adder" style="display: none; top: 211px; left: 846px;"><button>Annotate</button></div></div></div>
 
 
   
@@ -58,39 +29,13 @@
         require(['https://prod\u002Dedx\u002Dedxapp\u002Dassets.edx\u002Dcdn.org/static/js/edxnotes/views/notes_visibility_factory.fab487923921.js?raw'], function () {
           require(['js/edxnotes/views/notes_visibility_factory'], function (NotesVisibilityFactory) {
             
-    var element = document.getElementById('edx-notes-wrapper-92023095613597338080339069826497949893');
-    NotesVisibilityFactory.VisibilityDecorator.factory(element, {"usageId": "block-v1:LinuxFoundationX+LFS158x+3T2020+type@html+block@3776fb9f13fd484caed435f9f04dae6d", "courseId": "course-v1:LinuxFoundationX+LFS158x+3T2020", "token": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiAiYjQxODJkNWY0N2RmYjE1YWNmMWYiLCAiZXhwIjogMTYwMzI5MDYwNywgImlhdCI6IDE2MDMyODcwMDcsICJpc3MiOiAiaHR0cHM6Ly9jb3Vyc2VzLmVkeC5vcmcvb2F1dGgyIiwgInByZWZlcnJlZF91c2VybmFtZSI6ICJ3YXJucyIsICJzY29wZXMiOiBbImVtYWlsIiwgInByb2ZpbGUiXSwgInZlcnNpb24iOiAiMS4yLjAiLCAic3ViIjogImEzYTUzNjljMjNjZjc5MGZmM2Y2Yzc4Y2ZmYTJlNDJiIiwgImZpbHRlcnMiOiBbXSwgImlzX3Jlc3RyaWN0ZWQiOiBmYWxzZSwgImVtYWlsX3ZlcmlmaWVkIjogZmFsc2UsICJlbWFpbCI6ICJzbmlja25zQGdtYWlsLmNvbSIsICJuYW1lIjogIlVtaWQgQWxudWFpbWkiLCAiZmFtaWx5X25hbWUiOiAiQWxudWFpbWkiLCAiZ2l2ZW5fbmFtZSI6ICJNZXJ0IiwgImFkbWluaXN0cmF0b3IiOiBmYWxzZSwgInN1cGVydXNlciI6IGZhbHNlfQ.qdMO_hHzrn-F2Bw7xEz8SMM8YG41r4teKGt2qJP1EVo", "tokenUrl": "/courses/course-v1:LinuxFoundationX+LFS158x+3T2020/edxnotes/token/", "endpoint": "https://prod-edx-notes.edx.org/api/v1/", "debug": false, "eventStringLimit": 8333.333333333334, "user": "a3a5369c23cf790ff3f6c78cffa2e42b"}, true);
+    var element = document.getElementById('edx-notes-wrapper-166505410416070297995060548357308719771');
+    NotesVisibilityFactory.VisibilityDecorator.factory(element, {"usageId": "block-v1:LinuxFoundationX+LFS158x+3T2020+type@html+block@e50cfe77a42047c8bb15b5064b04d2a8", "courseId": "course-v1:LinuxFoundationX+LFS158x+3T2020", "token": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiAiYjQxODJkNWY0N2RmYjE1YWNmMWYiLCAiZXhwIjogMTYwMzI5NDQxOCwgImlhdCI6IDE2MDMyOTA4MTgsICJpc3MiOiAiaHR0cHM6Ly9jb3Vyc2VzLmVkeC5vcmcvb2F1dGgyIiwgInByZWZlcnJlZF91c2VybmFtZSI6ICJ3YXJucyIsICJzY29wZXMiOiBbImVtYWlsIiwgInByb2ZpbGUiXSwgInZlcnNpb24iOiAiMS4yLjAiLCAic3ViIjogImEzYTUzNjljMjNjZjc5MGZmM2Y2Yzc4Y2ZmYTJlNDJiIiwgImZpbHRlcnMiOiBbXSwgImlzX3Jlc3RyaWN0ZWQiOiBmYWxzZSwgImVtYWlsX3ZlcmlmaWVkIjogZmFsc2UsICJlbWFpbCI6ICJzbmlja25zQGdtYWlsLmNvbSIsICJuYW1lIjogIlVtaWQgQWxudWFpbWkiLCAiZmFtaWx5X25hbWUiOiAiQWxudWFpbWkiLCAiZ2l2ZW5fbmFtZSI6ICJNZXJ0IiwgImFkbWluaXN0cmF0b3IiOiBmYWxzZSwgInN1cGVydXNlciI6IGZhbHNlfQ.6tAygKeGNzz7XxWoCt0A41ZCovVreiHWaoBQD61Uw_M", "tokenUrl": "/courses/course-v1:LinuxFoundationX+LFS158x+3T2020/edxnotes/token/", "endpoint": "https://prod-edx-notes.edx.org/api/v1/", "debug": false, "eventStringLimit": 8333.333333333334, "user": "a3a5369c23cf790ff3f6c78cffa2e42b"}, true);
 
           });
         });
     }).call(this, require || RequireJS.require);
   </script>
 
-
-</div>
-
-    </div>
-</div>
-
-
-  
-  <script type="text/javascript">
-    (function (require) {
-        require(['https://prod\u002Dedx\u002Dedxapp\u002Dassets.edx\u002Dcdn.org/static/js/dateutil_factory.be68acdff619.js?raw'], function () {
-          require(['js/dateutil_factory'], function (DateUtilFactory) {
-            
-    DateUtilFactory.transform('.localized-datetime');
-
-          });
-        });
-    }).call(this, require || RequireJS.require);
-  </script>
-
-
-<script>
-    function emit_event(message) {
-        parent.postMessage(message, '*');
-    }
-</script>
 
 </div>
