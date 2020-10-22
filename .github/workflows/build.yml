@@ -110,7 +110,6 @@ terraform:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/mert' && github.event_name == 'push'
         run: terraform apply -auto-approve ./terraform
-
   staging:
     if: github.run_id != 'refs/heads/mert' &&  github.event_name == 'push'
     needs: [terraform, build]    
