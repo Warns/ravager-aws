@@ -49,4 +49,8 @@ spec:
       namespace: default
       labels:
         app: identity-app
+    spec:
+      imagePullSecrets:
+        - name: acr-secret
+      containers:
 
