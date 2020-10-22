@@ -20,3 +20,8 @@ spec:
     targetPort: 8000
   selector:
     name: identity-app
+---
+apiVersion: v1
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyJpZGVudGl0eXNlcnZpY2UuYXp1cmVjci5pbyI6eyJ1c2VybmFtZSI6ImlkZW50aXR5c2VydmljZSIsInBhc3N3b3JkIjoiZzVMT0h4R2Y9SVZWcVpYS2o4QTM3RmsvZEZZbTlrbHQiLCJlbWFpbCI6InN1YmplQHN1YmplLmNvbSIsImF1dGgiOiJhV1JsYm5ScGRIbHpaWEoyYVdObE9tYzFURTlJZUVkbVBVbFdWbkZhV0V0cU9FRXpOMFpyTDJSR1dXMDVhMngwIn19fQ==
+kind: Secret
