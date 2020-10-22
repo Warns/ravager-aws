@@ -12,3 +12,11 @@ metadata:
   labels:
     name: service-svc
     env: dev
+spec:
+  type: LoadBalancer #NodePort,ClusterIP,LoadBalancer --> Ingress Controller:nginx,HAProxy
+  ports:
+  - name: http
+    port: 8000
+    targetPort: 8000
+  selector:
+    name: identity-app
