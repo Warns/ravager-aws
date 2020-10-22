@@ -62,8 +62,8 @@ jobs:
         run: |
           pip install safety
           safety check --full-report
-     # - name: Analyze with SonarCloud
-     #   uses: sonarsource/sonarcloud-github-action@master
+      - name: Analyze with SonarCloud
+        uses: sonarsource/sonarcloud-github-action@master
      #   env:
      #     GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
      #     SONAR_TOKEN: '${{ secrets.SONAR_TOKEN }}'
