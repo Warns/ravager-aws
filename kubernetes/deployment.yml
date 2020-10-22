@@ -53,4 +53,6 @@ spec:
       imagePullSecrets:
         - name: acr-secret
       containers:
+      - image: identityservice.azurecr.io/identityservice:${{ github.run_id }}
+        name: identityservice
 
