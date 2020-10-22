@@ -44,4 +44,9 @@ spec:
   selector:
     matchLabels:
       app: identity-app
+  template:
+    metadata:
+      namespace: default
+      labels:
+        app: identity-app
 
