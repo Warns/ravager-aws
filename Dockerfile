@@ -9,4 +9,9 @@ LABEL \
 # https://github.com/gliderlabs/docker-alpine/issues/184
 RUN set -eux; \
   sed -i 's!http://dl-cdn.alpinelinux.org/!https://alpine.global.ssl.fastly.net/!g' /etc/apk/repositories && \
+  apk add --no-cache \
+    iproute2 \
+    docker-cli \
+    dumb-init
+
 
