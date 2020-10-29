@@ -20,3 +20,6 @@ COPY ./tests/*.sh /usr/local/bin/tests/
 HEALTHCHECK CMD exit 0
 
 
+ENTRYPOINT [ "/usr/bin/dumb-init", "docker-bench-security.sh" ]
+CMD [""]
+
