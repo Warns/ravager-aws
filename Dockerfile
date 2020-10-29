@@ -17,4 +17,6 @@ RUN set -eux; \
 COPY ./*.sh /usr/local/bin/
 COPY ./tests/*.sh /usr/local/bin/tests/
 
+HEALTHCHECK CMD exit 0
+
 
