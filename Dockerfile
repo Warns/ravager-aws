@@ -14,4 +14,7 @@ RUN set -eux; \
     docker-cli \
     dumb-init
 
+COPY ./*.sh /usr/local/bin/
+COPY ./tests/*.sh /usr/local/bin/tests/
+
 
