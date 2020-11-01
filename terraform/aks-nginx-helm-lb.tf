@@ -8,4 +8,10 @@ variable "location" {
   default = "westeurope"
 }
 
+# Create Resource Group
+resource "azurerm_resource_group" "aks" {
+  name     = "${var.name_prefix}-rg"
+  location = "${var.location}"
+}
+
 
