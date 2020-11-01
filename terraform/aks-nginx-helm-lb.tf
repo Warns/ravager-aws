@@ -14,4 +14,9 @@ resource "azurerm_resource_group" "aks" {
   location = "${var.location}"
 }
 
+# Create Azure AD Application for Service Principal
+resource "azurerm_azuread_application" "aks" {
+  name = "${var.name_prefix}-sp"
+}
+
 
