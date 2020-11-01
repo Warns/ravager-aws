@@ -24,4 +24,10 @@ resource "azurerm_azuread_service_principal" "aks" {
   application_id = "${azurerm_azuread_application.aks.application_id}"
 }
 
+# Generate random string to be used for Service Principal Password
+resource "random_string" "password" {
+  length  = 32
+  special = true
+}
+
 
