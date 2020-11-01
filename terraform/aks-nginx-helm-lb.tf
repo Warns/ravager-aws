@@ -19,4 +19,9 @@ resource "azurerm_azuread_application" "aks" {
   name = "${var.name_prefix}-sp"
 }
 
+# Create Service Principal
+resource "azurerm_azuread_service_principal" "aks" {
+  application_id = "${azurerm_azuread_application.aks.application_id}"
+}
+
 
