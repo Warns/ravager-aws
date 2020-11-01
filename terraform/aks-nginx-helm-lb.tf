@@ -71,4 +71,13 @@ provider "helm" {
   }
 }
 
+# Create Static Public IP Address to be used by Nginx Ingress
+resource "azurerm_public_ip" "nginx_ingress" {
+  name                         = "nginx-ingress-pip"
+  location                     = "${azurerm_kubernetes_cluster.aks.location}"
+  resource_group_name          = "${azurerm_kubernetes_cluster.aks.node_resource_group}"
+  public_ip_address_allocation = "static"
+  domain_name_label            = "${var.name_prefix}"
+}
+
 
