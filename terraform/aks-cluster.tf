@@ -39,5 +39,6 @@ resource "azurerm_kubernetes_cluster" "dev-identity-k8s" {
 
 # Create the virtual network for an AKS cluster
 module "network" {
-
+ source              = "Azure/network/azurerm"
+#
 }
