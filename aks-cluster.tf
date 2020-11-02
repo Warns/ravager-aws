@@ -34,6 +34,11 @@ resource "azurerm_kubernetes_cluster" "ims" {
     client_secret = var.password
   }
 
+# rbac
+  role_based_access_control {
+    enabled = true
+  }
+
   tags = {
     environment = "Develop"
   }
