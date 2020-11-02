@@ -15,6 +15,7 @@ resource "azurerm_resource_group" "ims" {
   }
 }
 
+# create cluster
 resource "azurerm_kubernetes_cluster" "ims" {
   name                = "${random_pet.prefix.id}-aks"
   location            = azurerm_resource_group.ims.location
