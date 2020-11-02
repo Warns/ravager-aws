@@ -2,7 +2,7 @@ resource "random_pet" "prefix" {}
 
 provider "azurerm" {
   version = "~> 2.0"
-  features {""}
+  features {}
 }
 
 # this should be changed to proper region
