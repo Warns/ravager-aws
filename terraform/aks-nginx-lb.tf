@@ -8,3 +8,15 @@ variable "location" {
   default = "westeurope"
 }
 
+# Create Resource Group
+resource "azurerm_resource_group" "aks" {
+  name     = "${var.name_prefix}-rg"
+  location = "${var.location}"
+}
+
+# Create Azure AD Application for Service Principal
+resource "azurerm_azuread_application" "aks" {
+  name = "${var.name_prefix}-sp"
+}
+
+
