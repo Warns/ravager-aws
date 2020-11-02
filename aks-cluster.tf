@@ -5,9 +5,10 @@ provider "azurerm" {
   features {}
 }
 
+# this should be changed to proper region
 resource "azurerm_resource_group" "ims" {
   name     = "${random_pet.prefix.id}-rg"
-  location = "West Europe"
+  location = "West US 2"
 
   tags = {
     environment = "develop"
