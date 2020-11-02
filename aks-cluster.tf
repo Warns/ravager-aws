@@ -19,7 +19,7 @@ resource "azurerm_kubernetes_cluster" "ims" {
   name                = "${random_pet.prefix.id}-aks"
   location            = azurerm_resource_group.ims.location
   resource_group_name = azurerm_resource_group.ims.name
-  dns_prefix          = "${random_pet.prefix.id}-k8s"
+
 
 # Cluster specifications >>
   default_node_pool {
