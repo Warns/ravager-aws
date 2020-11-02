@@ -24,7 +24,7 @@ resource "azurerm_kubernetes_cluster" "ims" {
 # Cluster specifications >>
   default_node_pool {
     name            = "ims"
-    node_count      = 2
+    node_count      = 3
     vm_size         = "Standard_D2_v2"
     os_disk_size_gb = 30
   }
