@@ -13,6 +13,7 @@ resource "azurerm_resource_group" "dev-rg" {
 }
 
 # this has been creating by following https://www.terraform.io/docs/backends/types/azurerm.html
+# to properly create the state do apply first without plan
 terraform {
   backend "azurerm" {
     resource_group_name   = "tstate"

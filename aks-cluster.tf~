@@ -8,14 +8,13 @@ provider "azurerm" {
 # this should be changed to proper region
 resource "azurerm_resource_group" "ims" {
   name     = "${random_pet.prefix.id}-rg"
-  location = "westeurope"
+  location = "West US 2"
 
   tags = {
     environment = "develop"
   }
 }
 
-# create cluster
 resource "azurerm_kubernetes_cluster" "ims" {
   name                = "${random_pet.prefix.id}-aks"
   location            = azurerm_resource_group.ims.location
@@ -25,9 +24,9 @@ resource "azurerm_kubernetes_cluster" "ims" {
 # Cluster specifications >>
   default_node_pool {
     name            = "ims"
-    node_count      = 3
+    node_count      = 2
     vm_size         = "Standard_D2_v2"
-    os_disk_size_gb = 50
+    os_disk_size_gb = 30
   }
 
   service_principal {
@@ -35,7 +34,6 @@ resource "azurerm_kubernetes_cluster" "ims" {
     client_secret = var.password
   }
 
-# rbac
   role_based_access_control {
     enabled = true
   }
