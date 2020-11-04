@@ -52,3 +52,9 @@ resource "azurerm_public_ip" "nginx_ingress" {
   allocation_method   = "Static"
   domain_name_label   = var.name_prefix
 }
+
+# Add Kubernetes Stable Helm charts repo
+resource "helm_repository" "stable" {
+  name = "stable"
+  url  = "https://kubernetes-charts.storage.googleapis.com"
+}
