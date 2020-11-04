@@ -9,19 +9,11 @@
 #   name = "${var.name_prefix}-sp"
 # }
 
-# Install Nginx Ingress using Helm Chart
-resource "helm_release" "nginx_ingress" {
-  name       = "nginx-ingress"
-  repository = "${helm_repository.stable.metadata.0.name}"
-  chart      = "nginx-ingress"
-
-  set {
-    name  = "rbac.create"
-    value = "false"
-  }
-
-  set {
-    name  = "controller.service.loadBalancerIP"
-    value = "${azurerm_public_ip.nginx_ingress.ip_address}"
-  }
-}
+# # Create managed Kubernetes cluster (AKS)
+# resource "azurerm_kubernetes_cluster" "aks" {
+#   name                = "${var.name_prefix}-aks"
+#   location            = azurerm_resource_group.aks.location
+#   resource_group_name = azurerm_resource_group.aks.name
+#   dns_prefix          = var.name_prefix
+# # Change to match compliance
+# # kubernetes_version  = "1.11.3"
