@@ -1,9 +1,4 @@
-agent_pool_profile {
-    name            = "linuxpool"
-    count           = 3
-    vm_size         = "Standard_DS2_v2"
 
-  }
 }
 
 # Initialize Helm (and install Tiller)
