@@ -31,3 +31,7 @@
 #   client_secret = azurerm_azuread_service_principal_password.aks.value
 # }
 # }
+
+# Initialize Helm (and install Tiller)
+provider "helm" {
+  #  install_tiller = true
