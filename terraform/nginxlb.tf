@@ -4,11 +4,10 @@
 #   location = var.location
 # }
 
-# Add Kubernetes Stable Helm charts repo
-resource "helm_repository" "stable" {
-  name = "stable"
-  url  = "https://kubernetes-charts.storage.googleapis.com"
-}
+# # Create Azure AD Application for Service Principal
+# resource "azuread_application" "aks" {
+#   name = "${var.name_prefix}-sp"
+# }
 
 # Install Nginx Ingress using Helm Chart
 resource "helm_release" "nginx_ingress" {
