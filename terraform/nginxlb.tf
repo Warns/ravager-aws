@@ -4,11 +4,6 @@ agent_pool_profile {
     vm_size         = "Standard_DS2_v2"
 
   }
-
-  service_principal {
-    client_id     = "${azurerm_azuread_application.aks.application_id}"
-    client_secret = "${azurerm_azuread_service_principal_password.aks.value}"
-  }
 }
 
 # Initialize Helm (and install Tiller)
