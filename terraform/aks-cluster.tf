@@ -12,6 +12,12 @@ resource "azurerm_kubernetes_cluster" "aks" {
     os_disk_size_gb = 30
   }
 
+  # service_principal {
+  #   client_id     = azurerm_azuread_application.aks.application_id
+  #   client_secret = azurerm_azuread_service_principal_password.aks.value
+  # }
+# }
+
   service_principal {
     client_id     = var.client_id
     client_secret = var.client_secret
