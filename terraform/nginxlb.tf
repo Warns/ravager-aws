@@ -65,4 +65,9 @@ resource "helm_release" "nginx_ingress" {
   repository = helm_repository.stable.metadata.0.name
   chart      = "nginx-ingress"
 
+  set {
+    name  = "rbac.create"
+    value = "false"
+  }
+
 }
