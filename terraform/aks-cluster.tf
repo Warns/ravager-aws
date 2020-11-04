@@ -1,8 +1,9 @@
-resource "azurerm_kubernetes_cluster" "dev-identity-k8s" {
-  name                = var.clustername
-  location            = azurerm_resource_group.dev-identity-k8s.location
-  resource_group_name = azurerm_resource_group.dev-identity-k8s.name
-  dns_prefix          = "${var.prefix}-dns"
+# test contrib set
+resource "azurerm_kubernetes_cluster" "aks" {
+  name                = "${var.name_prefix}-aks"
+  location            = azurerm_resource_group.aks.location
+  resource_group_name = azurerm_resource_group.aks.name
+  dns_prefix          = "${var.name_prefix}-dns"
 
   default_node_pool {
     name            = "identitynode"
