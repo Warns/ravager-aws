@@ -75,4 +75,9 @@ resource "helm_release" "nginx_ingress" {
     value = "Local"
   }
 
+  set {
+    name  = "controller.service.loadBalancerIP"
+    value = azurerm_public_ip.nginx_ingress.ip_address
+  }
+
 }
