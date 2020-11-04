@@ -25,3 +25,9 @@
 #     os_type         = "Linux"
 #     os_disk_size_gb = 30
 #   }
+
+# service_principal {
+#   client_id     = azurerm_azuread_application.aks.application_id
+#   client_secret = azurerm_azuread_service_principal_password.aks.value
+# }
+# }
