@@ -23,12 +23,12 @@ resource "azurerm_kubernetes_cluster" "aks" {
     client_secret = var.client_secret
   }
 
-  linux_profile {
-    admin_username = "dev"
-    ssh_key {
-      key_data = var.ssh-key
-    }
- }
+  # linux_profile {
+  #   admin_username = "dev"
+  #   ssh_key {
+  #     key_data = var.ssh-key
+  #   }
+ # }
 
   network_profile {
     network_plugin = "kubenet"
