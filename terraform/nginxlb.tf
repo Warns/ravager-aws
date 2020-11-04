@@ -1,10 +1,3 @@
-# Create Service Principal password
-resource "azurerm_azuread_service_principal_password" "aks" {
-  end_date             = "2299-12-30T23:00:00Z"                        # Forever
-  service_principal_id = "${azurerm_azuread_service_principal.aks.id}"
-  value                = "${random_string.password.result}"
-}
-
 # Create managed Kubernetes cluster (AKS)
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = "${var.name_prefix}-aks"
