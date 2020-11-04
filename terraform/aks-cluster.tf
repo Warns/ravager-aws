@@ -35,22 +35,13 @@ resource "azurerm_kubernetes_cluster" "aks" {
   #   load_balancer_sku = "Standard"
   # }
 
-  role_based_access_control {
-    enabled = true
-  }
-
-  tags = {
-    environment = "Dev Identity Service"
-  }
-}
-
 # Create the virtual network for an AKS cluster
-module "network" {
- source              = "Azure/network/azurerm"
- resource_group_name = azurerm_resource_group.dev-rg.name
- address_space       = "10.0.0.0/16"
-## subnet
- subnet_prefixes     = ["10.0.1.0/24"]
- subnet_names        = ["subnet1"]
- depends_on          = [azurerm_resource_group.dev-identity]
+# module "network" {
+#  source              = "Azure/network/azurerm"
+#  resource_group_name = azurerm_resource_group.dev-rg.name
+#  address_space       = "10.0.0.0/16"
+# ## subnet
+#  subnet_prefixes     = ["10.0.1.0/24"]
+#  subnet_names        = ["subnet1"]
+#  depends_on          = [azurerm_resource_group.dev-identity]
 }
