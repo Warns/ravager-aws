@@ -70,4 +70,9 @@ resource "helm_release" "nginx_ingress" {
     value = "false"
   }
 
+  set {
+    name  = "controller.service.externalTrafficPolicy"
+    value = "Local"
+  }
+
 }
