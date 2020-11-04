@@ -43,3 +43,12 @@ provider "helm" {
     cluster_ca_certificate = base64decode(azurerm_kubernetes_cluster.aks.kube_config.0.cluster_ca_certificate)
   }
 }
+
+# Create Static Public IP Address to be used by Nginx Ingress
+resource "azurerm_public_ip" "nginx_ingress" {
+  name                = "nginx-ingress-pip"
+  location            = azurerm_kubernetes_cluster.aks.location
+  resource_group_name = azurerm_kubernetes_cluster.aks.node_resource_group
+  allocation_method   = "Static"
+  domain_name_label   = var.name_prefix
+}
