@@ -53,3 +53,11 @@ terraform {
 #   value                = random_string.password.result
 # }
 
+# resource "azurerm_resource_group" "tstate" {
+#   name = "tstateidentityrg"
+#   location = var.location
+#   tags = {
+#     env = "tstate-rg"
+#     source = "sociallme"
+#   }
+# }
