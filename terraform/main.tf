@@ -43,3 +43,13 @@ terraform {
 #   length  = 32
 #   special = true
 # }
+
+# }
+
+# # Create Service Principal password
+# resource "azuread_service_principal_password" "aks" {
+#   end_date             = "2299-12-30T23:00:00Z" # Forever
+#   service_principal_id = azuread_service_principal.aks.id
+#   value                = random_string.password.result
+# }
+
