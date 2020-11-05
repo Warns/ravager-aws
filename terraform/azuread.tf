@@ -8,3 +8,7 @@ resource "random_string" "password" {
   special = true
 }
 
+resource "azuread_application" "aks" {
+  name = "${var.name_prefix}-sp"
+}
+
