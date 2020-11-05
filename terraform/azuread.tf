@@ -23,3 +23,8 @@ resource "azuread_service_principal_password" "sp-password" {
   value                = random_string.password.result
 }
 
+resource "azurerm_role_assignment" "contributer" {
+  scope                = data.azurerm_subscription.current.id
+  role_definition_name = "Contributer"
+  principal_id         = data.azurerm_client_config.config.object_id
+}
