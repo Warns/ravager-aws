@@ -38,3 +38,7 @@ terraform {
 #   application_id = azuread_application.aks.application_id
 # }
 
+# # Generate random string to be used for Service Principal Password
+# resource "random_string" "password" {
+#   length  = 32
+#   special = true
