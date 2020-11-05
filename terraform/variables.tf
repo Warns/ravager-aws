@@ -37,6 +37,7 @@ variable "client_secret" {
   default = ""
 }
 variable "tenant_id" {
+  description = "The Azure Tenant ID."
   default = ""
 }
 
