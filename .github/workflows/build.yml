@@ -88,10 +88,13 @@ jobs:
       - run: |
           docker build . -t identityservice.azurecr.io/serviceone:${{ github.run_id }}
           docker push identityservice.azurecr.io/serviceone:${{ github.run_id }}
-terraform:
+  terraform:
     name: 'Terraform'
     needs: build
     runs-on: ubuntu-latest
+    env:
+      TF_LOG: TRACE
+   
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v2
