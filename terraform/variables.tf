@@ -33,6 +33,7 @@ variable "client_id" {
   default = ""
 }
 variable "client_secret" {
+  description = "The Azure Service Principal password."
   default = ""
 }
 variable "tenant_id" {
