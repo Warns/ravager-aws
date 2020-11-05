@@ -29,6 +29,7 @@ variable "subscription_id" {
   default = ""
 }
 variable "client_id" {
+  description = "The Azure Service Principal app ID."
   default = ""
 }
 variable "client_secret" {
