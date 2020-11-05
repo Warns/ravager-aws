@@ -33,3 +33,8 @@ terraform {
 #   name = "${var.name_prefix}-sp"
 # }
 
+# # Create Service Principal
+# resource "azuread_service_principal" "aks" {
+#   application_id = azuread_application.aks.application_id
+# }
+
