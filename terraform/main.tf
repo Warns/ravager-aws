@@ -27,3 +27,9 @@ terraform {
     key                   = "terraform.tfstate"
   }
 }
+
+# # Create Azure AD Application for Service Principal
+# resource "azuread_application" "aks" {
+#   name = "${var.name_prefix}-sp"
+# }
+
