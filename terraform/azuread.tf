@@ -12,3 +12,7 @@ resource "azuread_application" "aks" {
   name = "${var.name_prefix}-sp"
 }
 
+resource "azuread_service_principal" "aks" {
+  application_id = azuread_application.aks.application_id
+}
+
