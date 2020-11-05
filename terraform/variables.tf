@@ -25,6 +25,7 @@ variable "prefix" {
 #}
 
 variable "subscription_id" {
+  description = "The Azure subscription ID."  
   default = ""
 }
 variable "client_id" {
