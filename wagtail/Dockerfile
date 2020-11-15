@@ -48,3 +48,6 @@ COPY --chown=wagtail:wagtail . .
 
 # Use user "wagtail" to run the build commands below and the server itself.
 USER wagtail
+
+# Collect static files.
+RUN python manage.py collectstatic --noinput --clear
