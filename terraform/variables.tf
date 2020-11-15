@@ -25,15 +25,19 @@ variable "prefix" {
 #}
 
 variable "subscription_id" {
+  description = "The Azure subscription ID."  
   default = ""
 }
 variable "client_id" {
+  description = "The Azure Service Principal app ID."
   default = ""
 }
 variable "client_secret" {
+  description = "The Azure Service Principal password."
   default = ""
 }
 variable "tenant_id" {
+  description = "The Azure Tenant ID."
   default = ""
 }
 
