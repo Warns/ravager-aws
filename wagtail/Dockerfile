@@ -19,4 +19,6 @@ RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-r
     build-essential \
 		libpq-dev \
 		libmariadbclient-dev \
+    libjpeg62-turbo-dev \	
 		&& rm -rf /var/lib/apt/lists/*
+
