@@ -24,3 +24,7 @@ RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-r
 		libwebp-dev \
 		&& rm -rf /var/lib/apt/lists/*
 
+# To satisfy debconf: delaying package configuration, since apt-utils is not installed
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
+
+
