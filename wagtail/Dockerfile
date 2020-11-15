@@ -13,3 +13,8 @@ EXPOSE 8000
 #    command.
 ENV PYTHONUNBUFFERED=1 \
     PORT=8000
+
+# Install system packages required by Wagtail and Djangod.
+RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-recommends \
+    build-essential \
+		&& rm -rf /var/lib/apt/lists/*
