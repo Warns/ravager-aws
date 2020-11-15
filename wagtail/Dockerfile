@@ -30,3 +30,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 # Install the application server.
 RUN pip install "gunicorn==20.0.4"
 RUN pip install twine
+
+# Install the project requirements.
+COPY requirements.txt /
+RUN pip install -r /requirements.txt
