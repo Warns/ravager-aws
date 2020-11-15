@@ -34,3 +34,6 @@ RUN pip install twine
 # Install the project requirements.
 COPY requirements.txt /
 RUN pip install -r /requirements.txt
+
+# Use /app folder as a directory where the source code is stored.
+WORKDIR /app
