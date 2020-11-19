@@ -113,3 +113,4 @@ stringData: # use stringData instead of data when you're not encoding with base6
 migration has to be done carefully and controlling the order and concurrency. `manage.py migrate` can easily get confused if you run two copies of it in parallel. So migrating while building the image using Dockerfile should only be used as long as runing one replica of the app.
 
 Therefore for more instances of the same app there are some different options one is to use a migration operator such as https://github.com/coderanger/migrations-operator
+#
