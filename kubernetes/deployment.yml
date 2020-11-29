@@ -79,3 +79,5 @@ spec:
   type: NodePort
   ports:
     - port: 8080
+  selector:
+    app: identity-app
