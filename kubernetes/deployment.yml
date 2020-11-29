@@ -58,7 +58,7 @@ spec:
         resources:
           requests:
             cpu: 1000m
-            memory: "500Mi" # See: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#how-pods-with-resource-requests-are-scheduled
+            memory: "512Mi" # See: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#how-pods-with-resource-requests-are-scheduled
           limits:
             cpu: 2
             memory: "1000Mi"
