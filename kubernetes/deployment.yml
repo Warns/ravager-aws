@@ -63,7 +63,7 @@ spec:
             cpu: 1500m
             memory: 1024Mi
         env:
-        - name: testEnv
+          - name: LOAD_BALANCER_IP
           value: "12345"
         ports:
         - containerPort: 8000
