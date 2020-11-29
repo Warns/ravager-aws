@@ -57,7 +57,7 @@ spec:
         name: identityservice
         resources:
           requests:
-            cpu: 0.5
+            cpu: 1000m
             memory: "500Mi" # See: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#how-pods-with-resource-requests-are-scheduled
           limits:
             cpu: 2
