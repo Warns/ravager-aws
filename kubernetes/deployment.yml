@@ -76,7 +76,7 @@ kind: Service
 metadata:
   name: identity-app
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - port: 8080
   selector:
