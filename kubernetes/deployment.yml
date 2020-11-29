@@ -77,3 +77,5 @@ metadata:
   name: identity-app
 spec:
   type: NodePort
+  ports:
+    - port: 8080
