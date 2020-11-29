@@ -61,7 +61,7 @@ spec:
             memory: 512Mi # See: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#how-pods-with-resource-requests-are-scheduled
           limits:
             cpu: 1500
-            memory: "1000Mi"
+            memory: "1024Mi"
         env:
         - name: testEnv
           value: "12345"
