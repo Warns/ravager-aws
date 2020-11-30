@@ -16,3 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      # Runs a single command using the runners shell
+      - name: Confirm build
+        run: Build done!
+
