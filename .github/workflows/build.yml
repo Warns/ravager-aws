@@ -1,6 +1,6 @@
 name: Python CI
 'on':
-  push:
+  pull_request:
    branches:
      - mert
   pull_request:

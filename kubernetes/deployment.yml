@@ -57,16 +57,27 @@ spec:
         name: identityservice
         resources:
           requests:
-            cpu: 0.5
-            memory: "500Mi" # See: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#how-pods-with-resource-requests-are-scheduled
+            cpu: 1000m
+            memory: 512Mi # See: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#how-pods-with-resource-requests-are-scheduled
           limits:
-            cpu: 2
-            memory: "1000Mi"
-        env:
-        - name: testEnv
-          value: "12345"
+            cpu: 1500m
+            memory: 1024Mi
+        # env:
+        #   - name: LOAD_BALANCER_IP
+        #   value: 20.71.3.246
         ports:
-        - containerPort: 8000
+        - containerPort: 8080
           name: identity-app
         imagePullPolicy: Always
       restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: identity-app
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+  selector:
+    app: identity-app
