@@ -1,63 +1,144 @@
-provider "azurerm" {
-  version = "=2.20.0"
-  subscription_id = var.subscription_id
-  client_id       = var.client_id
-  client_secret   = var.client_secret
-  tenant_id       = var.tenant_id
-}
-
-# create resource group
-resource "azurerm_resource_group" "dev-rg" {
-  name = "dev-identity-rg"
-  location = var.location
-  tags = {
-    env = "dev-identity-rg"
-    source = "sociallme"
-  }
-}
-
-# this has been creating by following https://www.terraform.io/docs/backends/types/azurerm.html
-# to properly create the state do apply first without plan
 terraform {
-  backend "azurerm" {
-    resource_group_name   = "tstate"
-    storage_account_name  = "tstatesociallme15315"
-    container_name        = "tstate"
-    access_key            = ""
-    key                   = "terraform.tfstate"
+  required_version = ">= 0.12.0"
+}
+
+provider "aws" {
+  version = ">= 2.28.1"
+  region  = var.region
+}
+
+data "aws_eks_cluster" "cluster" {
+  name = module.eks.cluster_id
+}
+
+data "aws_eks_cluster_auth" "cluster" {
+  name = module.eks.cluster_id
+}
+
+provider "kubernetes" {
+  host                   = data.aws_eks_cluster.cluster.endpoint
+  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
+  token                  = data.aws_eks_cluster_auth.cluster.token
+  load_config_file       = false
+  version                = "~> 1.11"
+}
+
+data "aws_availability_zones" "available" {
+}
+
+locals {
+  cluster_name = "test-eks-${random_string.suffix.result}"
+}
+
+resource "random_string" "suffix" {
+  length  = 8
+  special = false
+}
+
+resource "aws_security_group" "worker_group_mgmt_one" {
+  name_prefix = "worker_group_mgmt_one"
+  vpc_id      = module.vpc.vpc_id
+
+  ingress {
+    from_port = 22
+    to_port   = 22
+    protocol  = "tcp"
+
+    cidr_blocks = [
+      "10.0.0.0/8",
+    ]
   }
 }
 
-# # Create Azure AD Application for Service Principal
-# resource "azuread_application" "aks" {
-#   name = "${var.name_prefix}-sp"
-# }
+resource "aws_security_group" "worker_group_mgmt_two" {
+  name_prefix = "worker_group_mgmt_two"
+  vpc_id      = module.vpc.vpc_id
 
-# # Create Service Principal
-# resource "azuread_service_principal" "aks" {
-#   application_id = azuread_application.aks.application_id
-# }
+  ingress {
+    from_port = 22
+    to_port   = 22
+    protocol  = "tcp"
 
-# # Generate random string to be used for Service Principal Password
-# resource "random_string" "password" {
-#   length  = 32
-#   special = true
-# }
+    cidr_blocks = [
+      "192.168.0.0/16",
+    ]
+  }
+}
 
-# }
+resource "aws_security_group" "all_worker_mgmt" {
+  name_prefix = "all_worker_management"
+  vpc_id      = module.vpc.vpc_id
 
-# # Create Service Principal password
-# resource "azuread_service_principal_password" "aks" {
-#   end_date             = "2299-12-30T23:00:00Z" # Forever
-#   service_principal_id = azuread_service_principal.aks.id
-#   value                = random_string.password.result
-# }
+  ingress {
+    from_port = 22
+    to_port   = 22
+    protocol  = "tcp"
 
-# resource "azurerm_resource_group" "tstate" {
-#   name = "tstateidentityrg"
-#   location = var.location
-#   tags = {
-#     env = "tstate-rg"
-#     source = "sociallme"
-#   }
-# }
+    cidr_blocks = [
+      "10.0.0.0/8",
+      "172.16.0.0/12",
+      "192.168.0.0/16",
+    ]
+  }
+}
+
+module "vpc" {
+  source  = "terraform-aws-modules/vpc/aws"
+  version = "2.47.0"
+
+  name                 = "test-vpc"
+  cidr                 = "10.0.0.0/16"
+  azs                  = data.aws_availability_zones.available.names
+  private_subnets      = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+  public_subnets       = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
+  enable_nat_gateway   = true
+  single_nat_gateway   = true
+  enable_dns_hostnames = true
+
+  public_subnet_tags = {
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
+    "kubernetes.io/role/elb"                      = "1"
+  }
+
+  private_subnet_tags = {
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
+    "kubernetes.io/role/internal-elb"             = "1"
+  }
+}
+
+module "eks" {
+  source          = "../.."
+  cluster_name    = local.cluster_name
+  cluster_version = "1.17"
+  subnets         = module.vpc.private_subnets
+
+  tags = {
+    Environment = "test"
+    GithubRepo  = "terraform-aws-eks"
+    GithubOrg   = "terraform-aws-modules"
+  }
+
+  vpc_id = module.vpc.vpc_id
+
+  worker_groups = [
+    {
+      name                          = "worker-group-1"
+      instance_type                 = "t3.small"
+      additional_userdata           = "echo foo bar"
+      asg_desired_capacity          = 2
+      additional_security_group_ids = [aws_security_group.worker_group_mgmt_one.id]
+    },
+    {
+      name                          = "worker-group-2"
+      instance_type                 = "t3.medium"
+      additional_userdata           = "echo foo bar"
+      additional_security_group_ids = [aws_security_group.worker_group_mgmt_two.id]
+      asg_desired_capacity          = 1
+    },
+  ]
+
+  worker_additional_security_group_ids = [aws_security_group.all_worker_mgmt.id]
+  map_roles                            = var.map_roles
+  map_users                            = var.map_users
+  map_accounts                         = var.map_accounts
+}
